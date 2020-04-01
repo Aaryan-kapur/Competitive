@@ -7,17 +7,20 @@
 #solution:
 
 n=int(input())
+r=[]
 c=list(map(int,input().split()))
 def fun(c,n): 
   for i in range(n):
     for j in range(n):
-      if(c[i]>c[j]):
-        c[i] = c[i]-c[j]
-      if(c[j]>c[i]):
-        c[j] = c[j] - c[i]
-  return sum(c) 
-
+      s=abs(c[i]-c[j])
+      if s!=0:
+        r.append(s)
+  return (min(r)*n)
 print(fun(c,n))
+
+
+
+
 
 # Popeye the part-time Scientist
 
