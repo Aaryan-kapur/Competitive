@@ -14,7 +14,7 @@
 
 # 10
 
-# def bin_digit(num): 
+def bin_digit(num): 
 
 
     found = False
