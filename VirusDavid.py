@@ -70,21 +70,42 @@ print(len(string))
 
 
 
-
-import sys 
+def minSwaps(arr, n) : 
   
-INT_MAX = sys.maxsize; 
-INT_MIN = -(sys.maxsize - 1);
-def minimumAdjacentDifference(a, n, k) :
-    minDiff = INT_MAX;
-    for i in range(k + 1) :
-        maxDiff = INT_MIN; 
-        for j in range( n - k - 1) :  
-            for p in range(i, i + j + 1) : 
-                maxDiff = max(maxDiff, a[p + 1] - a[p]);
-        minDiff = min(minDiff, maxDiff); 
-    return minDiff; 
-n = int(input()) 
-a =list(map(int,input().split())) 
-k = int(input()) 
-print(minimumAdjacentDifference(a, n, k)); 
+    numberOfOnes = 0
+
+    for i in range(0, n) : 
+  
+        if (arr[i] == 1) : 
+            numberOfOnes = numberOfOnes + 1
+
+    x = numberOfOnes 
+      
+    count_ones = 0
+    maxOnes = 0
+
+    for i in range(0, x) : 
+  
+        if(arr[i] == 1) : 
+            count_ones = count_ones + 1
+          
+    maxOnes = count_ones 
+ 
+    for i in range(1, (n - x + 1)) : 
+ 
+        if (arr[i - 1] == 1) :  
+            count_ones = count_ones - 1
+
+        if(arr[i + x - 1] == 1) : 
+            count_ones = count_ones + 1
+          
+        if (maxOnes < count_ones) : 
+                maxOnes = count_ones 
+
+    numberOfZeroes = x - maxOnes 
+      
+    return numberOfZeroes 
+n=int(input())
+a =list(map(int,input().split()))
+
+print (minSwaps(a, n))
