@@ -1,0 +1,39 @@
+  Brahma
+  
+  
+  A=[char for char in str(input())]
+B=[char for char in str(input())]
+for i in range(len(A)):
+    if(A[i]!=B[i]):
+        B=[A[i] if X==B[i] else X for X in B]
+if(A==B):
+    print('Yes')
+else:
+    print('No')
+    
+    
+    
+    Mukesh
+    
+    
+    def countWaysToJump(arr, n): 
+    count_jump = [0 for i in range(n)] 
+    for i in range(n - 2, -1, -1): 
+        if (arr[i] >= n - i - 1): 
+            count_jump[i] += 1
+        j = i + 1
+        while(j < n-1 and j <= arr[i] + i): 
+            if (count_jump[j] != -1): 
+                count_jump[i] += count_jump[j] 
+            j += 1
+        if (count_jump[i] == 0): 
+            count_jump[i] = -1
+    for i in range(n): 
+        print(count_jump[i], end = " ") 
+n=int(input())
+arr = list(map(int,input().split(" "))) 
+countWaysToJump(arr, n)
+
+
+
+
